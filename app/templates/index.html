@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página Inicial</title>
+    <!-- Incluindo Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="import" href="nav.html" />
+  </head>
+
+  <body>
+    <div id="nav-container"></div>
+
+    <div class="row">
+      <div class="col">
+        <div class="container mt-5">
+          <div class="jumbotron text-center">
+            <h1 class="display-4">Olá, é bom te ver por aqui</h1>
+            <p class="lead">Esta é a página inicial do SUAP</p>
+            <p class="lead">Welcome</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+      <img src="https://suap.ifsuldeminas.edu.br/static/comum/img/logo-login.svg">
+      </div>
+    </div>
+
+    <!-- Incluindo jQuery e Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      fetch("nav.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("nav-container").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cidade</title>
+  <!-- Incluindo Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div id="nav-container"></div>
+
+  <div class="container mt-5">
+    <h2 class="mb-4">Cidades</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">UF</th>
+            </tr>
+            {% for Cidade in cidade %}
+          </thead>
+          <tbody>
+           <td>{{Cidade.nome}}</td>
+           <td>{{Cidade.uf}}</td>
+          </tbody>
+           {% endfor %} 
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Incluindo jQuery e Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    fetch('/nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-container').innerHTML = data;
+      });
+  </script>
+</body>
+</html>

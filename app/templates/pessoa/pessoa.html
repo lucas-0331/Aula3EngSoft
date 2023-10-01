@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pessoa</title>
+  <!-- Incluindo Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div id="nav-container"></div>
+
+  <div class="container mt-5">
+    <h2 class="mb-4">Pessoas</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Pai</th>
+              <th scope="col">Mãe</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Data de Nascimento</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Cidade</th>
+            </tr>
+            {% for Pessoa in pessoa %}
+          </thead>
+          <tbody>
+           <td>{{Pessoa.nome}}</td>
+           <td>{{Pessoa.pai}}</td>
+           <td>{{Pessoa.mae}}</td>
+           <td>{{Pessoa.cpf}}</td>
+           <td>{{Pessoa.dataNascimento}}</td>
+           <td>{{Pessoa.email}}</td>
+           <td>{{Pessoa.cidade}}</td>
+          </tbody>
+           {% endfor %} 
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Incluindo jQuery e Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    fetch('/nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-container').innerHTML = data;
+      });
+  </script>
+</body>
+</html>

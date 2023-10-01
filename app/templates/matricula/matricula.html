@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matricula</title>
+  <!-- Incluindo Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div id="nav-container"></div>
+
+    <div class="container mt-5">
+      <h2 class="mb-4">Matricular Aluno</h2>
+      <form action="/matricula/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="instituicao">Instituição:</label>
+          <select class="form-control" id="instituicao" name="instituicao">
+            {% for Instituicao in instituicao %}
+                <option value="{{Instituicao.id}}">{{ Instituicao.nome}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="curso">Curso:</label>
+          <select class="form-control" id="curso" name="curso">
+            {% for Curso in curso %}
+                <option value="{{Curso.id}}">{{ Curso.nome}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="pessoa">Pessoa:</label>
+          <input class="form-control" id="pessoa" name="pessoa">
+            {% comment %} 
+            {% for Pessoa in pessoa %}
+                <option value="{{ Pessoa.id }}">{{ Pessoa.nome }}</option>
+            {% endfor %}
+            {% endcomment %}
+          </input>
+        </div>
+        <div class="form-group">
+          <label for="data">Data Inicio:</label>
+          <input type="date" class="form-control" id="data" name="data">
+        </div>
+        <div class="form-group">
+          <label for="data">Data Previsão de Conclusão:</label>
+          <input type="date" class="form-control" id="data" name="data2">
+        </div>
+          <button type="submit" class="btn btn-warning mt-3 btn-lg btn-block">Salvar</button>
+      </form>
+      <br>      
+    </div>
+  </div>
+
+  <!-- Incluindo jQuery e Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    fetch('/nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-container').innerHTML = data;
+      });
+  </script>
+</body>
+</html>
